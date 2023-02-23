@@ -36,7 +36,7 @@
 			directoryScopeId = $DirectoryScope
 			justification = $Reason
 			scheduleInfo = @{
-				startDateTime = $StartTime.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
+				startDateTime = $StartTime.ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
 				expiration = @{
 					type = "AfterDuration"
 					duration = "PT$($Duration.TotalMinutes)M"

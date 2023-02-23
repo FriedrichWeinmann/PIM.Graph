@@ -1,20 +1,11 @@
-﻿function Get-PIMRole
-{
+﻿function Get-PIMRole {
 	[CmdletBinding()]
 	Param (
-	
+		[string]
+		$Name = '*'
 	)
 	
-	begin
-	{
-		
-	}
-	process
-	{
-		Invoke-MgGraphRequest -Uri "v1.0/"
-	}
-	end
-	{
-	
+	process {
+		Invoke-PimGraphRequest -Uri "v1.0/directoryRoles" | Where-Object displayName -Like $Name
 	}
 }

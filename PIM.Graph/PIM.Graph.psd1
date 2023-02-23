@@ -65,6 +65,10 @@ Description = 'Use to work with Azure AD PIM (Privilege Identity Management). Wo
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = @(
     'Enable-PIMRole'
+	'Get-PIMRole'
+	'Get-PIMRoleAssignment'
+	'Get-PIMRoleRequest'
+	'Invoke-PimGraphRequest'
 )
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
