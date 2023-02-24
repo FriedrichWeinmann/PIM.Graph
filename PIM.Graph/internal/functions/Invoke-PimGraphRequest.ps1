@@ -1,4 +1,29 @@
 ﻿function Invoke-PimGraphRequest {
+	<#
+	.SYNOPSIS
+		Execute a graph request.
+	
+	.DESCRIPTION
+		Execute a graph request.
+		Wrapper command around Invoke-MgGraphRequest with better output processing.
+	
+	.PARAMETER Uri
+		Relative link to call.
+		Passed through to Invoke-MgGraphRequest.
+		If no 'beta' or 'v1.0' prefix is used, it automatically injects 'v1.0'
+	
+	.PARAMETER Method
+		What REST Method to call.
+		Defaults to GET.
+	
+	.PARAMETER Body
+		A body to pass to the request.
+	
+	.EXAMPLE
+		PS C:\> Invoke-PimGraphRequest me
+
+		Retrieves information about the current user.
+	#>
 	[CmdletBinding()]
 	param (
 		[string]
@@ -11,8 +36,13 @@
 		$Body
 	)
 
+	if ($Uri -notmatch '^v1.0/|^beta/') {
+		$Uri = 'v1.0/{0}' -f $Uri
+	}
+
 	$param = @{
 		Method = $Method
+		ErrorAction = 'Stop'
 	}
 	if ($Body) { $param.Body = $Body }
 

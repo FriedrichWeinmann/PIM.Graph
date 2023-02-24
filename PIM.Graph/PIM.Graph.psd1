@@ -13,7 +13,7 @@ ModuleVersion = '1.0.0'
 GUID = '00d0845e-5c88-4486-a1a5-0446c8976a10'
 
 # Author of this module
-Author = 'Pascal Haag'
+Author = 'Pascal Haag & Friedrich Weinmann'
 
 # Company or vendor of this module
 CompanyName = ' '
@@ -57,18 +57,25 @@ Description = 'Use to work with Azure AD PIM (Privilege Identity Management). Wo
 # TypesToProcess = @()
 
 # Format files (.ps1xml) to be loaded when importing this module
-# FormatsToProcess = @()
+FormatsToProcess = @(
+	'xml\PIM.Graph.format.ps1xml'
+)
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = @(
-    'Enable-PIMRole'
+	'Get-PIMRoleProvider'
+	'Register-PIMRoleProvider'
+	'Set-PIMRoleProvider'
+	'Unregister-PIMRoleProvider'
+	'Enable-PIMRole'
 	'Get-PIMRole'
 	'Get-PIMRoleAssignment'
 	'Get-PIMRoleRequest'
-	'Invoke-PimGraphRequest'
+	'Resolve-PIMRole'
+	'Set-PIMRoleMapping'
 	'Stop-PIMRoleRequest'
 )
 
