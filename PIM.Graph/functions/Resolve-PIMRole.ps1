@@ -32,6 +32,7 @@
 
 		Returns the ID of the Global Administrator role.
 	#>
+	[OutputType([string])]
 	[CmdletBinding()]
 	Param (
 		[Parameter(Mandatory = $true)]

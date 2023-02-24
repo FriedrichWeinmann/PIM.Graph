@@ -24,6 +24,7 @@
 		
 		Creates a permanent role name alias for the Global Administrator
 	#>
+	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions", "")]
 	[CmdletBinding()]
 	Param (
 		[Parameter(Mandatory = $true)]
