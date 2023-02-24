@@ -19,11 +19,11 @@ $listnames = {
 }
 
 $param = @{
-	Name       = 'manual'
-	Conversion = $conversion
-	ListNames  = $listnames
-	Priority   = 1
-	Enabled    = $true
+	Name        = 'manual'
+	Conversion  = $conversion
+	ListNames   = $listnames
+	Priority    = 1
+	Enabled     = $true
 	Description = 'Allows manually defining a name-to-role mapping using Set-PIMRoleMapping.'
 }
 

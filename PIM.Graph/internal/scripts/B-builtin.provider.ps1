@@ -24,7 +24,7 @@ $param = @{
 	ListNames  = $listnames
 	Priority   = 2
 	Enabled    = $true
-	Descritpion = 'A static mapping of the common builtin roles.'
+	Description = 'A static mapping of the common builtin roles.'
 }
 
 Register-PIMRoleProvider @param
