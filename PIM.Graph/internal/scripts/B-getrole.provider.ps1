@@ -26,6 +26,7 @@ $param = @{
 	ListNames  = $listnames
 	Priority   = 60
 	Enabled    = $true
+	Description = 'Uses Get-PIMRole to resolve roles against graph. Requires scope RoleManagement.Read.Directory'
 }
 
 Register-PIMRoleProvider @param

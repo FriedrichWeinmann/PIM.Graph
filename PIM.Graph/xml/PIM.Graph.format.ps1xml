@@ -13,6 +13,7 @@
                     <TableColumnHeader/>
                     <TableColumnHeader/>
                     <TableColumnHeader/>
+                    <TableColumnHeader/>
                 </TableHeaders>
                 <TableRowEntries>
                     <TableRowEntry>
@@ -25,6 +26,48 @@
                             </TableColumnItem>
                             <TableColumnItem>
                                 <PropertyName>Enabled</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>Description</PropertyName>
+                            </TableColumnItem>
+                        </TableColumnItems>
+                    </TableRowEntry>
+                </TableRowEntries>
+            </TableControl>
+        </View>
+
+        <!-- PIM.Graph.RoleRequest -->
+        <View>
+            <Name>PIM.Graph.RoleRequest</Name>
+            <ViewSelectedBy>
+                <TypeName>PIM.Graph.RoleRequest</TypeName>
+            </ViewSelectedBy>
+            <TableControl>
+                <AutoSize/>
+                <TableHeaders>
+                    <TableColumnHeader/>
+                    <TableColumnHeader/>
+                    <TableColumnHeader/>
+                    <TableColumnHeader/>
+                    <TableColumnHeader/>
+                </TableHeaders>
+                <TableRowEntries>
+                    <TableRowEntry>
+                        <TableColumnItems>
+                            <TableColumnItem>
+                                <PropertyName>PrincipalName</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>Role</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>Status</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>Start</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>End</PropertyName>
                             </TableColumnItem>
                         </TableColumnItems>
                     </TableRowEntry>

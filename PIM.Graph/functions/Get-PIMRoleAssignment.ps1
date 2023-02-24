@@ -1,7 +1,38 @@
 ﻿function Get-PIMRoleAssignment {
-	# RoleManagement.Read.Directory
-	# Not used: EntitlementManagement.Read.All
-	# API: https://learn.microsoft.com/en-us/graph/api/rbacapplication-list-roleassignments?view=graph-rest-1.0&tabs=http
+	<#
+	.SYNOPSIS
+		Retrieve permanent role assignments.
+	
+	.DESCRIPTION
+		Retrieve permanent role assignments.
+
+		Scopes Needed: RoleManagement.Read.Directory
+	
+	.PARAMETER Role
+		Role for which to find assignees.
+	
+	.PARAMETER User
+		User for which to retrieve assignments.
+		Specify either "me" for the current user or UPN/mail of specific user.
+	
+	.EXAMPLE
+		PS C:\> Get-PIMRoleAssignment
+
+		Retrieve ALL role assignments.
+
+	.EXAMPLE
+		PS C:\> Get-PIMRoleAssignment -User me
+
+		Retrieve all role assignments of the current user.
+
+	.EXAMPLE
+		PS C:\> Get-PIMRoleAssignment -Role 'Global Administrator'
+
+		Retrieve all memberships in the 'Global Administrator' role.
+
+	.LINK
+		https://learn.microsoft.com/en-us/graph/api/rbacapplication-list-roleassignments?view=graph-rest-1.0&tabs=http
+	#>
 	[CmdletBinding()]
 	param (
 		[string]

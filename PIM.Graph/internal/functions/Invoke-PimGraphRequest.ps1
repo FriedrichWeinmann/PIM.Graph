@@ -55,6 +55,9 @@
 				else { [PSCustomObject]$entry }
 			}
 		}
+		elseif ($result.Keys.Count -eq 2 -and $result.Keys -contains 'value') {
+			# Do nothing, there are no results
+		}
 		else {
 			if ($result -isnot [Hashtable]) { $result }
 			else { [PSCustomObject]$result }

@@ -24,6 +24,7 @@ $param = @{
 	ListNames  = $listnames
 	Priority   = 1
 	Enabled    = $true
+	Description = 'Allows manually defining a name-to-role mapping using Set-PIMRoleMapping.'
 }
 
 Register-PIMRoleProvider @param
