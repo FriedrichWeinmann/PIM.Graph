@@ -4,7 +4,7 @@
 RootModule = 'PIM.Graph.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.0'
+ModuleVersion = '2.1.4'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -22,7 +22,7 @@ CompanyName = ' '
 Copyright = '(c) Pascal Haag. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'Use to work with Azure AD PIM (Privilege Identity Management). Works via Microsoft Graph'
+Description = 'Use to work with Entra PIM (Privilege Identity Management). Works via Microsoft Graph'
 
 # Minimum version of the PowerShell engine required by this module
 # PowerShellVersion = ''
@@ -103,19 +103,19 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        # Tags = @()
+        Tags = @('entra', 'pim', 'graph')
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+        LicenseUri = 'https://github.com/FriedrichWeinmann/PIM.Graph/blob/main/LICENSE'
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/FriedrichWeinmann/PIM.Graph'
 
         # A URL to an icon representing this module.
         # IconUri = ''
 
         # ReleaseNotes of this module
-        # ReleaseNotes = ''
+        ReleaseNotes = 'https://github.com/FriedrichWeinmann/PIM.Graph/blob/main/PIM.Graph/changelog.md'
 
         # Prerelease string of this module
         # Prerelease = ''
