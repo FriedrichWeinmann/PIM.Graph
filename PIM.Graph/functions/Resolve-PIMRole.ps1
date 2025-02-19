@@ -46,6 +46,9 @@
 		$Lenient
 	)
 	
+	begin {
+		Assert-EntraConnection -Service $script:entraServices.Graph -Cmdlet $PSCmdlet
+	}
 	process
 	{
 		# If no resolution is required and ID is provided, return ID

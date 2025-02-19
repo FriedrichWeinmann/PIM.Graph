@@ -1,5 +1,4 @@
-﻿function Enable-PIMRole
-{
+﻿function Enable-PIMRole {
 	<#
 	.SYNOPSIS
 		Activate a temporary Role membership.
@@ -71,28 +70,30 @@
 		$DirectoryScope = "/"
 	)
 	
-	process
-	{
+	begin {
+		Assert-EntraConnection -Service $script:entraServices.Graph -Cmdlet $PSCmdlet
+	}
+	process {
 		$resolvedRole = Resolve-PIMRole -Identity $Role
-		$body = @{
-			action = "SelfActivate"
-			principalId = (Invoke-MgGraphRequest -Uri "v1.0/me").id
+		$body = [ordered]@{
+			action           = "selfActivate"
+			principalId      = (Invoke-EntraRequest -Service $script:entraServices.Graph -Path "me").id
 			roleDefinitionId = $resolvedRole
 			directoryScopeId = $DirectoryScope
-			justification = $Reason
-			scheduleInfo = @{
+			justification    = $Reason
+			scheduleInfo     = @{
 				startDateTime = $StartTime.ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
-				expiration = @{
-					type = "AfterDuration"
+				expiration    = @{
+					type     = "AfterDuration"
 					duration = "PT$($Duration.TotalMinutes)M"
 				}
 			}
-			ticketInfo = @{
+			ticketInfo       = @{
 				ticketNumber = $TicketNumber
 				ticketSystem = $TicketSystem
 			}
 		}
-		try { Invoke-PimGraphRequest -Uri "v1.0/roleManagement/directory/roleAssignmentScheduleRequests" -Method POST -Body $body -ErrorAction Stop }
+		try { Invoke-EntraRequest -Service $script:entraServices.Graph -Path "roleManagement/directory/roleAssignmentScheduleRequests" -Method POST -Body $body -Header @{ 'Content-Type' = 'application/json' } -ErrorAction Stop }
 		catch { $PSCmdlet.ThrowTerminatingError($_) }
 	}
 }

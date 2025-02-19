@@ -28,3 +28,8 @@ if (Test-Path $manualRolesPath) {
 	try { $script:manuallyMappedRoles = Import-Clixml -Path $manualRolesPath -ErrorAction Stop }
 	catch { Write-Warning "Error loading roles mapping configuration file. File may be corrupt. Delete or repair the file. Path: $manualRolesPath" }
 }
+
+# Service to use with EntraAuth requests
+$script:entraServices = @{
+	Graph = 'Graph'
+}

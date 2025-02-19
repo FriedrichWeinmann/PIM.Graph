@@ -44,7 +44,7 @@ Description = 'Use to work with Azure AD PIM (Privilege Identity Management). Wo
 
 # Modules that must be imported into the global environment prior to importing this module
  RequiredModules = @(
-    'Microsoft.Graph.Authentication'
+    @{ ModuleName = 'EntraAuth'; ModuleVersion = '1.5.28' }
  )
 
 # Assemblies that must be loaded prior to importing this module
@@ -70,13 +70,13 @@ FunctionsToExport = @(
 	'Register-PIMRoleProvider'
 	'Set-PIMRoleProvider'
 	'Unregister-PIMRoleProvider'
+	'Disable-PIMRole'
 	'Enable-PIMRole'
 	'Get-PIMRole'
 	'Get-PIMRoleAssignment'
 	'Get-PIMRoleRequest'
 	'Resolve-PIMRole'
 	'Set-PIMRoleMapping'
-	'Stop-PIMRoleRequest'
 )
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.

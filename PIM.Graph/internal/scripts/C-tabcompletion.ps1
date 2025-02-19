@@ -12,8 +12,10 @@ $completion = {
 	}
 }
 Register-ArgumentCompleter -CommandName Resolve-PIMRole -ParameterName Identity -ScriptBlock $completion
+Register-ArgumentCompleter -CommandName Disable-PIMRole -ParameterName Role -ScriptBlock $completion
 Register-ArgumentCompleter -CommandName Enable-PIMRole -ParameterName Role -ScriptBlock $completion
 Register-ArgumentCompleter -CommandName Get-PIMRoleAssignment -ParameterName Role -ScriptBlock $completion
+Register-ArgumentCompleter -CommandName Get-PIMRoleRequest -ParameterName Role -ScriptBlock $completion
 #endregion Role Names
 
 #region Role Provider

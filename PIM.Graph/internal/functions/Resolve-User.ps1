@@ -36,7 +36,7 @@
 
 	process {
 		if ($Me) {
-			try { (Invoke-PimGraphRequest -Uri 'me' -ErrorAction Stop).Id }
+			try { (Invoke-EntraRequest -Service $script:entraServices.Graph -Path 'me' -ErrorAction Stop).Id }
 			catch { $PSCmdlet.ThrowTerminatingError($_) }
 			return
 		}
@@ -45,7 +45,11 @@
 			return $Identity
 		}
 
-		try { $user = Invoke-PimGraphRequest -Uri "users?`$select=id&`$filter=userPrincipalName eq '$Identity' or mail eq '$Identity'" -ErrorAction Stop }
+		$queryHash = @{
+			'$select' = 'id'
+			'$filter' = "userPrincipalName eq '$Identity' or mail eq '$Identity'"
+		}
+		try { $user = Invoke-EntraRequest -Service $script:entraServices.Graph -Path "users" -Query $queryHash -ErrorAction Stop }
 		catch { $PSCmdlet.ThrowTerminatingError($_) }
 
 		if (-not $user) { throw "User not found: $user" }
