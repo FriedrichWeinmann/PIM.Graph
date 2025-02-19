@@ -13,7 +13,7 @@
 		} | Select-Object -First 1 | ForEach-Object displayName
 	}
 	else {
-		$roles | Where-Object displayName -EQ $Identity | Select-Object -First 1 | ForEach-Object displayName
+		$roles | Where-Object displayName -EQ $Identity | Select-Object -First 1 | ForEach-Object templateId
 	}
 }
 $listnames = {

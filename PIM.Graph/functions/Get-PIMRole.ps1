@@ -23,7 +23,13 @@
 		$Name = '*'
 	)
 	
+	begin {
+		Assert-EntraConnection -Service $script:entraServices.Graph -Cmdlet $PSCmdlet
+	}
 	process {
-		Invoke-PimGraphRequest -Uri "v1.0/directoryRoles" | Where-Object displayName -Like $Name
+		Invoke-EntraRequest -Service $script:entraServices.Graph -Path "roleManagement/directory/roleDefinitions" | Where-Object displayName -Like $Name | ForEach-Object {
+			$_.PSObject.TypeNames.Insert(0, 'PIM.Graph.Role')
+			$_
+		}
 	}
 }
